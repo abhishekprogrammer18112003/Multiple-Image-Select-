@@ -31,11 +31,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  image_picker: ^0.6.3+1
-  path_provider:
-  image_gallery_saver: ^1.2.2
-  permission_handler: ^4.2.0+hotfix.3
-  dio:
+  image_picker: ^0.8.6+4
+  shared_preferences: ^2.0.18
+
+  
 
 
   # The following adds the Cupertino Icons font to your application.

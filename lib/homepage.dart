@@ -1,101 +1,69 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/bottomnavigationbar.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  // List<File> _imageList = [];
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _loadSavedImages();
+  // }
+
+  // Future<void> _selectImages() async {
+  //   final picker = ImagePicker();
+  //   final pickedFiles = await picker.pickMultiImage();
+  //   if (pickedFiles != null) {
+  //     setState(() {
+  //       _imageList = pickedFiles.map((file) => File(file.path)).toList();
+  //     });
+  //     _saveImages();
+  //   }
+  // }
+
+  // Future<void> _loadSavedImages() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final savedPaths = prefs.getStringList('imagePaths') ?? [];
+  //   setState(() {
+  //     _imageList = savedPaths.map((path) => File(path)).toList();
+  //   });
+  // }
+
+  // Future<void> _saveImages() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final imagePaths = _imageList.map((file) => file.path).toList();
+  //   prefs.setStringList('imagePaths', imagePaths);
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            margin:
-                const EdgeInsets.only(top: 25, left: 27, right: 40, bottom: 20),
-            height: 105,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 209, 133, 133),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 10, offset: Offset(5, 5), color: Colors.grey)
-                ]),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 40, top: 15, bottom: 15),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 200,
-                      color: const Color.fromARGB(255, 196, 196, 196),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      height: 30,
-                      width: double.infinity,
-                      color: const Color.fromARGB(255, 168, 216, 173),
-                    )
-                  ]),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Stack(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                    top: 35, left: 27, right: 60, bottom: 20),
-                height: 100,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 209, 133, 133),
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 10,
-                          offset: Offset(5, 5),
-                          color: Colors.grey)
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 20, right: 20, top: 20, bottom: 20),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          height: 30,
-                          width: double.infinity,
-                          color: const Color.fromARGB(255, 168, 216, 173),
-                        )
-                      ]),
-                ),
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 12.0, right: 40),
-                  child: Container(
-                    // alignment: Alignment.center,
-                    height: 45,
-                    width: 150,
-                    color: const Color.fromARGB(255, 196, 196, 196),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+      appBar: AppBar(
+        title: Text('Multi Image Page'),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
+
+  // Widget _buildImageList() {
+  //   return Wrap(
+  //     spacing: 8,
+  //     runSpacing: 8,
+  //     children: _imageList.map((file) {
+  //       return SizedBox(
+  //         width: 100,
+  //         height: 100,
+  //         child: Image.file(file, fit: BoxFit.cover),
+  //       );
+  //     }).toList(),
+  //   );
+  // }
 }
